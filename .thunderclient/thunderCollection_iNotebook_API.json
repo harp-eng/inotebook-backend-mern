@@ -1,0 +1,409 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "iNotebook API",
+  "dateExported": "2026-06-03T00:00:00.000Z",
+  "version": "1.2",
+  "folders": [
+    {
+      "_id": "fld_health",
+      "name": "Health",
+      "containerId": "",
+      "created": "2026-06-03T00:00:00.000Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "fld_auth",
+      "name": "Auth",
+      "containerId": "",
+      "created": "2026-06-03T00:00:00.000Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "fld_notes",
+      "name": "Notes",
+      "containerId": "",
+      "created": "2026-06-03T00:00:00.000Z",
+      "sortNum": 30000
+    },
+    {
+      "_id": "fld_aliases",
+      "name": "Compatibility Aliases",
+      "containerId": "",
+      "created": "2026-06-03T00:00:00.000Z",
+      "sortNum": 40000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req_health_root",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_health",
+      "name": "API Health",
+      "url": "{{baseUrl}}/",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_auth_register",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_auth",
+      "name": "Register User",
+      "url": "{{baseUrl}}/api/auth/register",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_auth_login",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_auth",
+      "name": "Login User",
+      "url": "{{baseUrl}}/api/auth/login",
+      "method": "POST",
+      "sortNum": 21000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_auth_user",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_auth",
+      "name": "Get Current User",
+      "url": "{{baseUrl}}/api/auth/user",
+      "method": "GET",
+      "sortNum": 22000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_notes_list",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_notes",
+      "name": "List Notes",
+      "url": "{{baseUrl}}/api/notes",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_notes_create",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_notes",
+      "name": "Create Note",
+      "url": "{{baseUrl}}/api/notes",
+      "method": "POST",
+      "sortNum": 31000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"First note\",\n  \"description\": \"This is my first note.\",\n  \"tag\": \"General\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_notes_update",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_notes",
+      "name": "Update Note",
+      "url": "{{baseUrl}}/api/notes/:id",
+      "method": "PUT",
+      "sortNum": 32000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "value": "replace-with-note-id",
+          "isPath": true
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Updated note\",\n  \"description\": \"This note has been updated.\",\n  \"tag\": \"Updated\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_notes_delete",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_notes",
+      "name": "Delete Note",
+      "url": "{{baseUrl}}/api/notes/:id",
+      "method": "DELETE",
+      "sortNum": 33000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "value": "replace-with-note-id",
+          "isPath": true
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_create_user",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Create User Alias",
+      "url": "{{baseUrl}}/api/auth/createuser",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_get_user",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Get User Alias",
+      "url": "{{baseUrl}}/api/auth/getuser",
+      "method": "GET",
+      "sortNum": 41000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_fetch_all_notes",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Fetch All Notes Alias",
+      "url": "{{baseUrl}}/api/notes/fetchallnotes",
+      "method": "GET",
+      "sortNum": 42000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_add_note",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Add Note Alias",
+      "url": "{{baseUrl}}/api/notes/addnote",
+      "method": "POST",
+      "sortNum": 43000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"First note\",\n  \"description\": \"This is my first note.\",\n  \"tag\": \"General\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_update_note",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Update Note Alias",
+      "url": "{{baseUrl}}/api/notes/updatenote/:id",
+      "method": "PUT",
+      "sortNum": 44000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "value": "replace-with-note-id",
+          "isPath": true
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Updated note\",\n  \"description\": \"This note has been updated.\",\n  \"tag\": \"Updated\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "req_alias_delete_note",
+      "colId": "col_inotebook_api",
+      "containerId": "fld_aliases",
+      "name": "Delete Note Alias",
+      "url": "{{baseUrl}}/api/notes/deletenote/:id",
+      "method": "DELETE",
+      "sortNum": 45000,
+      "created": "2026-06-03T00:00:00.000Z",
+      "modified": "2026-06-03T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{authToken}}"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "value": "replace-with-note-id",
+          "isPath": true
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "",
+        "form": []
+      },
+      "tests": []
+    }
+  ]
+}
